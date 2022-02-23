@@ -21,10 +21,16 @@ To get data use GetData() function that takes 2 parameters as follows:
 GetData(url, responseType);
 ```
 
-#### Notes
+### Notes:
 - Both of PostData & GetData are booleans. They return true if request was successsfull and false otherwise.
+
 - Alternatively we could also call CurrentState function which will return an enum called WorkerState. The requesst is successful if the return value is WorkerState::CONNECTION_SUCCESSFUL & It is not seccessful if the return value is WorkerState::CONNECTION_FAILED
+
 - If the request was successful then depending on our ResponseType we call either the Json() or ByteArray() function to get the data that was returned from the server
+
+- LadWorker is tested with Siteground and Hostgator-China shared hosting plans. I have been using it for over a year with no issues for my personal use. That being said, it is still possible that you encounter some issues in your use case. If so, pls reach out to me and explain the issue in details.
+
+- Pls keep in mind that some isses are due to server's configuration and require a fix on the server rather than the script.
 
  
 ### Examples:
