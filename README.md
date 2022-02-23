@@ -39,6 +39,7 @@ GetData(url, responseType);
 
 ```c++
 QUrl *url = new QUrl("http://exampleurl.com/data.php");
+
 LadWorker worker;
 if(worker.PostData(url, ResponseType::BYTE_ARRAY))
 {
