@@ -1,6 +1,6 @@
 # LadWorker
-#### A helper class to make http requests in Qt
-LadWorker simplify your workflow when trying to make http requests within Qt framework. It contains most of what you need to make a request and get a response.
+#### A helper class to make network requests in Qt
+LadWorker simplify your workflow when trying to make network requests within Qt framework. It contains most of what you need to make a request and get a response.
 
 ### How does it works:
 #### 1) Post Data
