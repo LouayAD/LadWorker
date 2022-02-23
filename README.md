@@ -3,16 +3,23 @@
 LadWorker simplify your workflow when trying to make http requests within Qt framework. It contains most of what you need to make a request and get a response.
 
 ### How does it works:
-#### Post Data
-To post data use PostData() function as follows.
+#### 1) Post Data
+To post data use PostData() function that takes 3 parameters as follows:
+
+```c++
 PostData(data, url, responseType);
-- data is a QUrlQuery
-- url is a QUrl
+```
+
+- data is QUrlQuery
+- url is QUrl
 - responseType is an enum where you can choose one of the following types { JSON_ARRAY, BYTE_ARRAY, NO_REPLY }
 
-#### Get Data
-To get data use GetData() function as follows.
+#### 2) Get Data
+To get data use GetData() function that takes 2 parameters as follows:
+
+```c++
 GetData(url, responseType);
+```
 
 #### Notes
 - Both of PostData & GetData are booleans. They return true if request was successsfull and false otherwise.
@@ -20,9 +27,9 @@ GetData(url, responseType);
 - If the request was successful then depending on our ResponseType we call either the Json() or ByteArray() function to get the data that was returned from the server
 
  
-#### Examples
+### Examples:
 
-##### 1. Get Data
+#### 1. Get Data
 
 ```c++
 QUrl *url = new QUrl("http://exampleurl.com/data.php");
@@ -37,14 +44,20 @@ else
    //request failed
 }
 ```
-##### 2. Post Data
+#### 2. Post Data
 
 ```c++
 QUrl *url = new QUrl("http://exampleurl.com/data.php");
+
+//the values that we want to post
 QString value1= "1";
 QString value2= "2";
+
+//convert to utf8
 QByteArray const value1Data = value1.toUtf8();
 QByteArray const value2Data = value2.toUtf8();
+
+//finally we add them to the query
 QUrlQuery postData;
 postData.addQueryItem("key1", value1Data );
 postData.addQueryItem("key2", value2Data );
@@ -60,7 +73,7 @@ else
 }
 ```
 
-#### Implementation
+### Implementation:
 First of all make sure network is added to .pro as follows
 
 ```c++
@@ -69,7 +82,7 @@ QT       += core gui network
 
 Now simply create a classs called 'LadWorker' then copy-paste the following .h & .cpp code
 
-##### .h
+#### .h
 
 ```c++
 #ifndef LADWORKER_H
@@ -132,7 +145,7 @@ private:
 #endif // LADWORKER_H
 ```
 
-##### .cpp
+#### .cpp
 
 ```c++
 #include "ladworker.h"
