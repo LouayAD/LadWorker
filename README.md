@@ -10,10 +10,6 @@ To post data use PostData() function that takes 3 parameters as follows:
 PostData(data, url, responseType);
 ```
 
-- data = QUrlQuery
-- url = QUrl
-- responseType is an enum where you can choose one of the following types { JSON_ARRAY, BYTE_ARRAY, NO_REPLY }
-
 #### 2) Get Data
 To get data use GetData() function that takes 2 parameters as follows:
 
@@ -21,16 +17,23 @@ To get data use GetData() function that takes 2 parameters as follows:
 GetData(url, responseType);
 ```
 
+- data = QUrlQuery
+- url = QUrl
+- responseType is an enum where you can choose one of the following types { JSON_ARRAY, BYTE_ARRAY, NO_REPLY }
+
 ### Notes:
-- Both of PostData & GetData are booleans. They return true if request was successsfull and false otherwise.
+- Both of PostData & GetData are booleans. They return true if the connection is successsfull and false otherwise.
 
-- Alternatively we could also call CurrentState function which will return an enum called WorkerState. The requesst is successful if the return value is WorkerState::CONNECTION_SUCCESSFUL & It is not seccessful if the return value is WorkerState::CONNECTION_FAILED
+- Alternatively we could also call CurrentState() function which returns an enum called WorkerState. The two important states for this scenario are CONNECTION_SUCCESSFUL & CONNECTION_FAILED
 
-- If the request was successful then depending on our ResponseType we call either the Json() or ByteArray() function to get the data that was returned from the server
+- If the request is successful then depending on the ResponseType we should call either the Json() or ByteArray() function to get the correct response that was returned from the server
 
-- LadWorker is tested with Siteground and Hostgator-China shared hosting plans. I have been using it for over a year with no issues for my personal use. That being said, it is still possible that you encounter some issues in your use case. If so, pls reach out to me and explain the issue in details.
+### Compatibility:
+- LadWorker is tested on Qt5.12+ & Qt6.2+ for windows. Connects fine with Siteground and Hostgator-China shared servers.
 
-- Pls keep in mind that some isses are due to server's configuration and require a fix on the server rather than the script.
+- I have been using it for over a year with no issues for my personal use. However, it is possible to encounter some problems depending on your environment and use case. If so, pls reach out to me and explain the problem in details.
+
+- Pls keep in mind that some isses are due to server's configuration and require a fix on the server.
 
  
 ### Examples:
@@ -41,13 +44,13 @@ GetData(url, responseType);
 QUrl *url = new QUrl("http://exampleurl.com/data.php");
 
 LadWorker worker;
-//check if connection is successful
+//check if the connection is successful
 if(worker.PostData(url, ResponseType::BYTE_ARRAY))
 {
    //we cast the response we received into a string
    QString DataAsString = QString(worker.ByteArray());
    
-   //do what ever u want with the response
+   //that's it, do what ever u want with the response
 }
 else
 {
@@ -73,7 +76,7 @@ postData.addQueryItem("key1", value1Data );
 postData.addQueryItem("key2", value2Data );
 
 LadWorker worker;
-//check if connection is successful
+//check if the connection is successful
 if(worker.PostData(postData, url, ResponseType::NO_REPLY))
 {
     //posted successfully
