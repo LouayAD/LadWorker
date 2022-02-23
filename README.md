@@ -41,14 +41,17 @@ GetData(url, responseType);
 QUrl *url = new QUrl("http://exampleurl.com/data.php");
 
 LadWorker worker;
+//check if connection is successful
 if(worker.PostData(url, ResponseType::BYTE_ARRAY))
 {
-    QString DataAsString = QString(worker.ByteArray());
-    //we use the data to do something here
+   //we cast the response we received into a string
+   QString DataAsString = QString(worker.ByteArray());
+   
+   //do what ever u want with the response
 }
 else
 {
-   //request failed
+   //failed to connect
 }
 ```
 #### 2. Post Data
@@ -70,6 +73,7 @@ postData.addQueryItem("key1", value1Data );
 postData.addQueryItem("key2", value2Data );
 
 LadWorker worker;
+//check if connection is successful
 if(worker.PostData(postData, url, ResponseType::NO_REPLY))
 {
     //posted successfully
