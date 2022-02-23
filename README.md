@@ -60,7 +60,7 @@ else
 }
 ```
 
-#### How to Implement
+#### Implementation
 First of all make sure network is added to .pro as follows
 
 ```c++
