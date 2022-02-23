@@ -10,8 +10,8 @@ To post data use PostData() function that takes 3 parameters as follows:
 PostData(data, url, responseType);
 ```
 
-- data is QUrlQuery
-- url is QUrl
+- data = QUrlQuery
+- url = QUrl
 - responseType is an enum where you can choose one of the following types { JSON_ARRAY, BYTE_ARRAY, NO_REPLY }
 
 #### 2) Get Data
