@@ -31,7 +31,7 @@ GetData(url, responseType);
 ### Compatibility:
 - LadWorker is tested on Qt5.12+ & Qt6.2+ for windows. Connects fine with Siteground and Hostgator-China shared servers.
 
-- I have been using it for over a year with no issues for my personal use. However, it is possible to encounter some problems depending on your environment and use case. If so, pls reach out to me and explain the problem in details.
+- I have been using it since 2020 with no issues for my personal use. However, it is possible to encounter some problems depending on your environment and use case. If so, pls reach out to me and explain the problem in details.
 
 - Pls keep in mind that some isses are due to server's configuration and require a fix on the server.
 
