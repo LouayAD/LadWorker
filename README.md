@@ -45,7 +45,7 @@ QUrl *url = new QUrl("http://exampleurl.com/data.php");
 
 LadWorker worker;
 //check if the connection is successful
-if(worker.PostData(url, ResponseType::BYTE_ARRAY))
+if(worker.GetData(url, ResponseType::BYTE_ARRAY))
 {
    //we cast the response we received into a string
    QString DataAsString = QString(worker.ByteArray());
